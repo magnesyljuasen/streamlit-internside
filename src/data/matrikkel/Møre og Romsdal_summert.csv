@@ -1,0 +1,114 @@
+,BYGNINGSTYPE_NAVN,BRUKSAREAL_TOTALT,ANTALL_ETASJER,UX_KOORDINAT,UY_KOORDINAT,BEBYGD_AREAL,ANTALL,FYLKE
+0,Andre småhus m/3 boliger el fl,1039643,8327,20981811773.57,244565176.92,267533.4,3033,Møre og Romsdal
+1,Annen boligbyg.(sek. reindrift,79171,592,1379696189.1,16565074.94,2688.0,200,Møre og Romsdal
+2,Annen bygn. for religiøs akt.,6608,35,118592962.21000001,1303925.05,1307.6,17,Møre og Romsdal
+3,Annen bygning for bofellesskap,46991,154,550776243.03,6656362.36,13286.5,81,Møre og Romsdal
+4,Annen bygning for overnatting,33025,214,767738616.4,12275411.73,10929.3,110,Møre og Romsdal
+5,Annen eksp. og terminalbygning,27212,66,292677552.91,3325974.88,8012.1,44,Møre og Romsdal
+6,Annen fiskeri- og fangstbygn.,17871,50,258153023.82,3315166.03,9234.0,38,Møre og Romsdal
+7,Annen forretningsbygning,491856,1081,2830082058.64,34229066.15,108194.0,432,Møre og Romsdal
+8,Annen garasje-/hangarbygning,44831,121,683001967.37,9504182.71,21099.7,102,Møre og Romsdal
+9,Annen hotellbygning,29217,73,209154646.98,2970798.07,14609.0,34,Møre og Romsdal
+10,Annen idrettsbygning,97719,339,1533047299.06,21268508.81,25871.5,227,Møre og Romsdal
+11,Annen industribygning,1999927,2519,10270017393.13,132120441.62,384066.9,1635,Møre og Romsdal
+12,Annen kontorbygning,336085,807,2211029405.66,30522114.01,74316.65,325,Møre og Romsdal
+13,Annen lagerbygning,418282,1011,5257690910.39,73498535.43,204281.7,775,Møre og Romsdal
+14,Annen landbruksbygning,270972,1667,9441420050.38,166639066.4,107466.7,1375,Møre og Romsdal
+15,Annen museum/biblioteksbygning,5891,32,83850936.34,1423811.07,897.0,12,Møre og Romsdal
+16,Annen primærhelsebygning,32804,71,202275481.18,2591080.39,4772.0,30,Møre og Romsdal
+17,Annen restaurantbygning,17023,92,306560464.32,4336599.81,6089.0,46,Møre og Romsdal
+18,Annen skolebygning,93088,238,836372368.41,9833620.55,24807.3,125,Møre og Romsdal
+19,Annen universitet/høgskolebygn,10857,42,153133549.33,2125745.04,41.0,23,Møre og Romsdal
+20,Annen veg-og trafikktilsynsbygning,10514,38,160133710.48,2238073.61,1032.0,24,Møre og Romsdal
+21,Annet kulturhus,41463,179,627814433.46,7829551.72,12028.0,92,Møre og Romsdal
+22,Annet sykehjem,15784,18,70072321.85,1118180.26,5435.0,10,Møre og Romsdal
+23,Appartement,12301,82,222900472.73,3030827.96,3462.4,32,Møre og Romsdal
+24,Bankbygning posthus,54940,154,334512579.6,4013365.75,4570.7,50,Møre og Romsdal
+25,Barnehage,193708,553,2187601514.04,25706889.98,75310.7,348,Møre og Romsdal
+26,Barneskole,355971,551,1679477993.53,20597582.67,108987.4,271,Møre og Romsdal
+27,Bedehus menighetshus,58948,360,1150442220.15,15612016.040000001,7429.3,170,Møre og Romsdal
+28,Bensinstasjon,37399,157,724339319.11,8959634.3,7635.2,112,Møre og Romsdal
+29,Bibliotek mediatek,9560,30,83810021.96,1384267.33,1887.0,12,Møre og Romsdal
+30,Bo- og behandlingssenter,95351,151,467032679.66,5905053.94,17076.1,70,Møre og Romsdal
+31,Bo- og servicesenter,147856,331,1204503521.84,13141635.69,27148.5,176,Møre og Romsdal
+32,Boligbrakker,92117,273,1080673892.52,13366878.97,35756.7,159,Møre og Romsdal
+33,Brannstasjon ambulansestasjon,34773,113,446042502.74,5969331.02,17128.7,67,Møre og Romsdal
+34,Butikk/forretningsbygning,1117812,2610,6853171923.61,87155669.08,277661.0,1057,Møre og Romsdal
+35,Bygn.for vannfors.bla. pumpest,25136,132,656271561.54,9666354.23,8730.5,96,Møre og Romsdal
+36,Bygning for renseanlegg,35971,128,551072352.37,7927398.5200000005,15365.0,80,Møre og Romsdal
+37,Camping/utleiehytte,12740,143,572582611.1899999,8873309.6,5533.8,85,Møre og Romsdal
+38,Diskotek ungdomsklubb,4200,24,83776753.33,1321487.59,610.0,12,Møre og Romsdal
+39,Driftsb. fiske/fangst/oppdr,274983,570,2463775388.08,30777669.37,106422.6,367,Møre og Romsdal
+40,Eksp.bygn. flyterm. kontr.tårn,20609,58,174642360.45,2534945.9899999998,2731.3,30,Møre og Romsdal
+41,Enebolig,8385718,95641,288717793626.56,3702063177.94,1473050.92,41781,Møre og Romsdal
+42,Enebolig m/hybel/sokkelleil.,1614762,16692,46015179051.33,509275561.2,169517.9,6668,Møre og Romsdal
+43,Fabrikkbygning,1000033,1089,3946990859.51,46471217.39,134754.0,637,Møre og Romsdal
+44,Fritidsbygg(hyttersommerh. ol,578394,8224,33311524113.59,524672279.42,305314.99,4805,Møre og Romsdal
+45,Fyrstasjon losstasjon,331,6,14000829.66,169591.66999999998,0.0,2,Møre og Romsdal
+46,Garasjeuth.anneks til fritidb,11046,141,600824273.06,10525158.23,4141.7,87,Møre og Romsdal
+47,Garasjeuthus anneks til bolig,349676,4093,18468949734.73,255452119.4,111802.6,2659,Møre og Romsdal
+48,Gatekjøkken kioskbygning,9799,77,334222109.7,4313457.94,1266.0,50,Møre og Romsdal
+49,Godsterminal,51914,53,243696745.52,3102033.46,10606.0,36,Møre og Romsdal
+50,Helse-/sosialsent. helsestasj.,21925,37,125242937.28,1038830.34,6752.4,19,Møre og Romsdal
+51,Helsestudio,16039,45,146291151.95,2013673.19,5149.0,23,Møre og Romsdal
+52,Helårsb.benyttes som fritidsb.,75253,1188,3281231799.64,57304054.0,5260.5,472,Møre og Romsdal
+53,Hospits pensjonat,10759,40,83797508.36,1375343.83,1166.0,13,Møre og Romsdal
+54,Hotellbygning,262493,455,759138522.5,9455856.49,27326.0,130,Møre og Romsdal
+55,Hus for dyr/landbr.lager/silo,1559703,7229,33168821608.63,502777888.52,471446.0,4918,Møre og Romsdal
+56,Idrettshall,280664,191,724961296.54,8766353.11,148728.1,108,Møre og Romsdal
+57,Ishall,12860,1,7020210.7,134250.36,12865.0,1,Møre og Romsdal
+58,Jernbane- og T-banestasjon,960,5,13890788.75,265972.28,780.0,2,Møre og Romsdal
+59,Kino/teater/opera/konsertbygn,30878,48,111627497.52,1655443.76,2139.0,16,Møre og Romsdal
+60,Kirke kapell,33981,105,348633680.46,4325606.66,3846.0,52,Møre og Romsdal
+61,Kjede/atriumhus,75066,892,3175748455.95,38755592.36,37099.1,456,Møre og Romsdal
+62,Kjøle- og fryselager,97349,54,271793786.8,2846281.5,34312.0,39,Møre og Romsdal
+63,Kjøpesenter varehus,618124,476,1365489714.63,15897598.78,99499.0,220,Møre og Romsdal
+64,"Klinikk, legekontor/-senter/-vakt/dyresykehus",31021,101,250971912.21,3026936.0,8850.0,39,Møre og Romsdal
+65,Komb. barne- og ungdomsskole,108619,114,369404425.63,4768019.11,51760.9,62,Møre og Romsdal
+66,Kontor- og adm.bygning rådhus,610655,1242,2759509853.85,32007974.48,40825.0,435,Møre og Romsdal
+67,Kremat. gravkapell bårehus,1354,7,27828181.96,410373.89,535.9,4,Møre og Romsdal
+68,Lagerhall,787678,1740,9809293786.83,133924629.72,414150.0,1435,Møre og Romsdal
+69,Lekepark,36700,160,661168254.56,6681060.32,5438.7,105,Møre og Romsdal
+70,Mediabygning,5731,9,20935827.99,303029.38,0.0,3,Møre og Romsdal
+71,Messe- og kongressbygning,240,1,6986673.78,170098.97,260.0,1,Møre og Romsdal
+72,Motellbygning,5362,22,62819885.05,829043.51,1085.5,9,Møre og Romsdal
+73,Museum kunstgalleri,39394,135,446086485.98,6112751.22,8262.0,65,Møre og Romsdal
+74,Naust båthus sjøbu,120045,1365,6260661063.48,74074336.99,39495.5,905,Møre og Romsdal
+75,Naust/redskapshus for fiske,12064,97,398110159.7,4417560.12,3364.6,58,Møre og Romsdal
+76,Offentlig toalett,476,4,27881902.26,508068.76,394.0,4,Møre og Romsdal
+77,Parkeringshus,73317,51,167050818.54,1443963.32,13739.0,24,Møre og Romsdal
+78,Politistasjon,12477,31,69831595.68,989179.21,2465.0,12,Møre og Romsdal
+79,Postterminal,27751,24,69776645.67,876092.72,18445.9,11,Møre og Romsdal
+80,Rehabiliter.institusjon.kurbad,18835,38,139321258.67,1853993.21,5875.0,21,Møre og Romsdal
+81,Rekkehus,568919,8125,25771520676.71,328858062.67,120439.9,3699,Møre og Romsdal
+82,Restaurantbygning kafebygning,48415,248,759526451.75,10861991.98,12315.7,113,Møre og Romsdal
+83,Samfunnshus grendehus,83236,410,1450829079.68,20593101.9,10868.0,213,Møre og Romsdal
+84,Sentralkjøkken kantinebygning,4376,13,69811412.41,996348.41,2095.1,10,Møre og Romsdal
+85,Seterhus sel rorbu o.l.,11955,184,710872356.64,6455882.34,5056.6,102,Møre og Romsdal
+86,Skogs- og utmarkskoie gamme,214,2,13973549.59,221322.6,122.0,2,Møre og Romsdal
+87,Store sammenb. boligbygg på 3 og 4 etg.,105976,402,710603737.33,7110579.92,17580.1,103,Møre og Romsdal
+88,Store sammenb. boligbygg på 5 etg. el. mer,143055,439,556979522.5,4430092.04,22103.6,82,Møre og Romsdal
+89,Store sammenbygde boligbygg på 2 etg.,17430,71,195506156.56,2877949.01,3579.0,28,Møre og Romsdal
+90,Stort frittliggende boligbygg på 2 etg.,130706,580,1672664115.66,20868212.12,46357.3,241,Møre og Romsdal
+91,Stort frittliggende boligbygg på 3 og 4 etg.,1037240,3510,5918227016.44,68423398.29,135645.0,868,Møre og Romsdal
+92,Stort frittliggende boligbygg på 5 etg. el. mer,344747,751,842957390.92,8166660.31,36786.9,121,Møre og Romsdal
+93,Studenthjem/studentboliger,43472,123,264563470.41,2556041.84,6694.6,38,Møre og Romsdal
+94,Svømmehall,36776,38,83521445.61,786115.31,17908.0,15,Møre og Romsdal
+95,Sykehjem,209021,251,571605700.29,7135215.34,26112.0,94,Møre og Romsdal
+96,Sykehus,225954,166,355091425.2,3504093.65,21914.0,53,Møre og Romsdal
+97,Terrassehus,109859,613,1748618921.42,26731737.66,14762.5,250,Møre og Romsdal
+98,"Tomannsbolig, horisontaldelt",572786,7120,16193336619.13,212013510.42,53634.4,2335,Møre og Romsdal
+99,"Tomannsbolig, vertikaldelt",1075928,15840,50920480078.87,575808023.36,405271.95,7323,Møre og Romsdal
+100,Trafikktilsynsbygning,8766,20,69724677.18,1018403.48,4054.4,11,Møre og Romsdal
+101,Tribune og idrettsgarderobe,16241,79,362552718.28,4921581.73,4501.0,52,Møre og Romsdal
+102,Ungdomsskole,139815,150,403905450.49,4654498.22,31364.4,68,Møre og Romsdal
+103,Univ./høgskole m/auditor.leses,59332,55,111487308.7,1263169.77,3264.5,16,Møre og Romsdal
+104,Vandre-/feriehjem,23467,180,619887285.32,10020674.62,3714.1,92,Møre og Romsdal
+105,Veksthus,26068,72,467348691.78000003,6519349.06,5976.6,68,Møre og Romsdal
+106,Verkstedbygning,568363,1274,5194320755.18,68440677.5,175572.5,817,Møre og Romsdal
+107,Videregående skole,168156,210,543849839.76,6554809.47,25225.0,90,Møre og Romsdal
+108,Våningh. benyttes som fritidsb,113025,1706,4895455669.07,83416232.75,9660.2,704,Møre og Romsdal
+109,Våningshus,1535356,18139,49186083034.86,726282052.33,155143.05,7128,Møre og Romsdal
+110,"Våningshus, tomannsb./horisont.",98460,1009,2379724241.44,28696824.84,6691.1,350,Møre og Romsdal
+111,"Våningshus, tomannsb./vertikal.",144341,1339,3462371580.81,63549072.99,19616.7,504,Møre og Romsdal
+112,Zoologisk/botanisk hage (byg.),5746,5,20873089.44,125454.28,68.1,3,Møre og Romsdal

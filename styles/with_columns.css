@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+
+* {font-family: 'Montserrat';}
+
+a {
+    text-decoration: none;
+    color: #1d3c34 !important;
+    font-weight: 800;
+}
+
+a:hover {
+    color: #1d3c34 !important;
+    text-decoration: none;
+}
+
+ul {list-style-type: none;}
+
+
+ul.streamlit-expander {
+    background-color: transparent;
+    border-radius: 25px;
+    border: 0.05px solid #1d3c34;
+    padding: 5px;
+}
+
+hr {
+    margin-top: 0px;
+    margin-bottom: 5%;
+}
+
+
+/*
+.stTextInput>div>div>input {
+    color: black;
+    background-color: whitesmoke;
+    border: #1d3c34;
+}
+*/
+
+div.input > button:first-child { 
+    color: #1d3c34;
+    }
+
+/* CSS */
+div.stButton > button:first-child {
+    color: white;
+    background-color: #1d3c34;
+    opacity: 1;
+    border: none;
+    transition-duration: 0.4s;
+    appearance: none;
+    border: 0px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+  }
+  
+  div.stButton > button:hover {
+    color: white;
+    background-color: #48a23f;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  div.stButton > button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  
+  div.stProgress > div > div > div > div {
+    background-color: #1d3c34;
+    }
+
+/* */
+[data-testid="column"] {
+    box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+    border-radius: 15px;
+    padding: 2.5% 2.5% 2.5% 2.5%;
+    text-align: center;
+    min-height: 100px;
+} 
+
+
+/* Style containers */
+[data-testid="stVerticalBlock"] > [style*="flex-direction: column;"] > [data-testid="stVerticalBlock"] {
+    padding: 30px;
+    border-radius: 25px;
+    border: 1px groove #1d3c34;
+}
+
+MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+
+footer {visibility: hidden;}
+        
+footer:hover,  footer:active {
+    color: #ffffff;
+    background-color: transparent;
+    text-decoration: underline;
+    transition: 400ms ease 0s;
+}
+
+footer:after {
+    content:"En tjeneste levert av Asplan Viak"; 
+    visibility: visible;
+    display: block;
+    position: relative;
+    padding: 5px;
+    top: 2px;
+    color: black;
+}
+
+
+
+
+
+

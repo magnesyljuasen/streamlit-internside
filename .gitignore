@@ -1,0 +1,5 @@
+.venv/
+.streamlit/secrets.toml
+.env/
+helpscripts/__pycache__/
+src/data/matrikkel_ignore/

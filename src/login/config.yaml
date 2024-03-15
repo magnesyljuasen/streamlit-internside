@@ -1,0 +1,33 @@
+credentials:
+  usernames:
+    magne:
+      name: Magne
+      password: $2b$12$3BIzzBRFf4iUi1FBHyFCqufvhHd20EWQpp0bAyFPyQ8W5E5YgdEpq # To be replaced with hashed password
+    henrik:
+      name: Henrik
+      password: $2b$12$PwFCN16oXzuFt6TS4LxNOuhIBFrou.veRuPMnJzOU4QkDvgW16NfC # To be replaced with hashed password
+    randi:
+      name: Randi
+      password: $2b$12$IjW9V2bvdzRIcK7Epgb8uOicYZQHDXrdjUVxHynWZ0HWp2T8eh02i # To be replaced with hashed password
+    sofie:
+      name: Sofie
+      password: $2b$12$.zl960O0qbrDPl34QdY9u.a4fthGhSk1lS9gDXKgbUgiavtXVJLrK # To be replaced with hashed password
+    johanne:
+      name: Johanne
+      password: $2b$12$wlstZCA.KuK.kejAkNpw5uevwmvsEScgPseC2B/eRL585MBVvHYm2 # To be replaced with hashed password
+    bente:
+      name: Bente
+      password: $2b$12$U0fZLJXNAZrNqx0RKgt83eviTwKyOEbKkYTmXfRRmGxJrtA.p701G # To be replaced with hashed password
+    ellen:
+      name: Ellen
+      password: $2b$12$8JxyNJQJJk2Ax9VOCvR1lePLuDnDCAjzmX0BGqrHdxpoopI7yb7ca # To be replaced with hashed password
+    vvs:
+      name: 
+      password: $2b$12$4muzMw1Wjau7.exomGYh4.LaYTYrXUsxj.wux17VI1sTjcph7MBdS #To be replaced with hashed password
+    anton:
+      name: Anton
+      password: $2b$12$YQRwbQzezVQgxp9D.NVqL.IDS14W.UIOWCJaFmmpfwF1qsiHyWkA6 #To be replaced with hashed password
+cookie:
+  expiry_days: 60
+  key: some_signature_key
+  name: some_cookie_name
