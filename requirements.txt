@@ -51,7 +51,7 @@ importlib-metadata==7.0.1
 ipyevents==2.0.2
 ipyfilechooser==0.6.0
 ipyleaflet==0.18.2
-ipython==8.22.2
+ipython==8.18.1
 ipytree==0.2.2
 ipywidgets==8.1.2
 jedi==0.19.1
