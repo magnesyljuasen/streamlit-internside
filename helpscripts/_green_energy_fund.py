@@ -19,8 +19,8 @@ class GreenEnergyFund:
         # Define investment parameters
         self.effekt_vp = 200
         self.levert_varme = 900000
-        self.COP = 3.5
-        self.el_vp = self.levert_varme / self.COP
+        #self.COP = 3.5
+        #self.el_vp = self.levert_varme / self.COP
         self.elpris = 1
         self.boring = 4.83e6
         self.vp = 4e6
@@ -36,8 +36,6 @@ class GreenEnergyFund:
         self.calculate_investment_cost_eaas()
 
         self.LEASING_15 = 0.102 * self.investering # gjør om til parameter på 15
-
-        
 
     def calculate_investment_cost_15(self):
         self.investering = (
@@ -120,7 +118,6 @@ class GreenEnergyFund:
         return self.investering, IRR, pris, pris_kWh, pris_15, verdi_anlegg
 
     def seb_energy_as_a_service(self):
-
         self.calculate_investment_cost_eaas()
 
         egenkapital = (1 - self.BELAANING) * self.investering

@@ -37,6 +37,7 @@ fiona==1.9.5
 folium==0.16.0
 fonttools==4.49.0
 forex-python==1.8
+fuzzywuzzy==0.18.0
 gdown==5.1.0
 geojson==3.1.0
 geopandas==0.14.3

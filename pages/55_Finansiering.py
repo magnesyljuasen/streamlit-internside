@@ -7,7 +7,7 @@ from helpscripts._green_energy_fund import GreenEnergyFund
 
 st.set_page_config(
     page_title="Fond",
-    layout="centered"
+    layout="wide"
 )
 
 with open("styles/main.css") as f:
@@ -114,23 +114,55 @@ def plot_prismodell_akkumulert(df):
     st.plotly_chart(fig, use_container_width=True)
 
 st.title("Inndata")
-with st.form(key = "inndata"):
-    # Define investment parameters
-    with st.expander("Investering", expanded = True):
-        green_energy.effekt_vp = st.number_input("Varmepumpeeffekt [kW]", value=200, step = 10)
-        green_energy.levert_varme = st.number_input("Levert varme [kWh]", value=900000, step = 10000)
-        green_energy.COP = st.number_input("COP", value=3.5)
+
+st.caption("**1) Varmeleveranse**")
+c1, c2, c3 = st.columns(3)
+with c1:
+    green_energy.effekt_vp = st.slider("Levert varmeeffekt fra varmepumpe [kW]", value=0, min_value=0, max_value=500)
+    st.caption(f"Registrert: {green_energy.effekt_vp:,} kW".replace(",", " "))
+with c2:
+    from_wells = st.slider("Levert varme fra brønner [kWh]", value=0, min_value=0, max_value=1000000, step=1000)
+    st.caption(f"Registrert: {from_wells:,} kWh".replace(",", " "))
+with c3:
+    from_compressor = st.slider("Strømforbruk kompressor [kWh]", value=0, min_value=0, max_value=500000, step=1000)
+    st.caption(f"Registrert: {from_compressor:,} kWh".replace(",", " "))
+    green_energy.el_vp = from_compressor
+    green_energy.levert_varme = from_wells + from_compressor
+st.markdown("---")
+st.caption("**2) Investeringskostnader**")
+st.caption(f"*Antatte verdier basert på utfylt data i 1) Varmeleveranse*: | Ca. antall brønnmeter {int(from_wells/80):,} m | Tilsvarer {int(from_wells/80/300):,} brønner á 300 m | COP {round(float((from_wells + from_compressor)/from_compressor), 1)}".replace(",", " "))
+c1, c2, c3 = st.columns(3)
+with c1:
+    wells_cost_guess_value = 20000 + (from_wells/80) * 437.5
+    green_energy.boring = st.slider("Energibrønner [kr]", value=int(wells_cost_guess_value), min_value=0, max_value=10000000)
+with c2:
+    heatpump_cost_guess_value = 214000 + (green_energy.effekt_vp) * 2200
+    green_energy.vp = st.slider("Varmepumpe [kr]", value=heatpump_cost_guess_value, min_value=0, max_value=10000000)
+with c3:
+    green_energy.sol = st.slider("Solenergi [kr]", value=0, min_value=0, max_value=10000000)
+st.markdown("---")
+
+c1, c2, c3 = st.columns(3)
+# Define investment parameters
+with st.expander("Investering", expanded = True):
+    pass
         
-        green_energy.boring = st.number_input("Energibrønner [kr]", value=int(4.83e6), step = 10000)
-        green_energy.vp = st.number_input("Varmepumpe [kr]", value=int(4e6), step = 10000)
-        green_energy.sol = st.number_input("Solenergi [kr]", value=0, step = 10000)
+        
+        
+        
+        
+        
+        
+with c2:
     with st.expander("Energy as a service", expanded = True):
         green_energy.LEASING_EAAS = st.number_input("Leasing [kr]", value=450000, step = 1000, key = "eaas1")            
         green_energy.REINVEST_VP_2 = st.number_input("Reinvestering VP [kr]", value = int(2 * 7e5), step = 1000)
         green_energy.AVKASTNINGSKRAV_BYGG = st.number_input("Avkastningskrav bygg [%]", value=4, key = "eaas2")
+with c3:
     with st.expander("15 år", expanded = True):
         green_energy.LEASING_15 = st.number_input("Leasing [kr]", value= int(round(0.102 * green_energy.investering,-3)), step = 1000, key = "151")
         green_energy.REINVEST_VP_1 = st.number_input("Reinvestering VP [kr]", value = int(0.2 * green_energy.vp), step = 1000, key = "152")
+with c1:
     with st.expander("Økonomi", expanded = True):
         green_energy.ØKONOMISK_LEVETID = st.number_input("Økonomisk levetid [år]", value=15)
         green_energy.INFLASJON = st.number_input("Inflasjon [%]", value=2.0, step = 0.1)
@@ -143,11 +175,10 @@ with st.form(key = "inndata"):
         green_energy.AV_VARME = st.number_input("Asplan Viak Varme [%]", value=20)
         green_energy.AV_SOL = st.number_input("Asplan Viak Sol [%]", value=10)
         green_energy.ENOVA = st.number_input("Enova [kr]", value=1600)
-    
+with c2:
     with st.expander("Driftskostnad", expanded = True):
         green_energy.elpris = st.number_input("Strømpris [kr/kWh]", value=1.0, step = 0.1)
         green_energy.driftskostnad = st.number_input("Driftskostnad [kr/år]", value=50000, step = 1000)
-    st.form_submit_button("Oppdater")
 
 
 

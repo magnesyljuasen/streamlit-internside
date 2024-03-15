@@ -29,7 +29,7 @@ token_url = "https://identity.byggforsk.no/connect/token"
 api_url = "https://flexibilitysuite.byggforsk.no/api/Profet"
 
 client_id = 'profet_2024'
-client_secret = getSecret('app/src/csv/secret.txt')
+client_secret = getSecret('src/csv/secret.txt')
 
 api_client = BackendApplicationClient(client_id=client_id)
 oauth = OAuth2Session(client=api_client)

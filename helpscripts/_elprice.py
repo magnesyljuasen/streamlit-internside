@@ -47,7 +47,7 @@ class CalculateCosts:
                 
             
         self.skuddaar = False
-        self.spotprisfil = 'app/src/csv/spotpriser_kalkulator.xlsx'
+        self.spotprisfil = 'src/csv/spotpriser_kalkulator.xlsx'
 
     def bestem_prissatser(self):
         #Leser av prissatser for nettleie fra excel-filen som er lastet opp. Skjer kun hvis man ikke velger konstant pris
