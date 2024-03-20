@@ -87,8 +87,10 @@ with open("styles/main.css") as f:
     with tab3:
         c1, c2 = st.columns(2)
         with c1:
+            st.write("[• OneNote](%s)" % "https://asplanviak.sharepoint.com/sites/10333-03/_layouts/15/Doc.aspx?sourcedoc={8a98f001-87e7-44ee-a92a-0829b4885f29}&action=edit&wd=target%28Sysselsetting.one%7C537d1ee5-fba2-4a28-96e2-3de9aec333f0%2FSysselsetting%7C1c40e3b4-a502-4af9-8a70-602c287675db%2F%29&wdorigin=NavigationUrl")
+            st.write("[• Tilbud (Sales)](%s)" % "https://asvsales.crm4.dynamics.com/main.aspx?appid=552e1ed3-ff62-ea11-a811-000d3a4aaf7b&pagetype=entitylist&etn=apv_project&viewid=6eb3c9ad-2190-ed11-aad1-0022489c5e15&viewType=4230")
             st.write("[• Sysselsetting](%s)" % "https://asplanviak.sharepoint.com/:x:/r/sites/10333-03/_layouts/15/Doc.aspx?sourcedoc=%7B16A5245E-E536-4A50-B78A-79AC4835A40F%7D&file=Sysselsetting%20grunnvarme.xlsx&action=default&mobileredirect=true&cid=421904ae-05a4-4426-bbcd-bfb2f0c56fad") 
-            st.write("[• Prosess & miljø](%s)" % "https://asplanviak.sharepoint.com/:x:/r/sites/10362-00-50/_layouts/15/Doc.aspx?sourcedoc=%7B76F0DFE8-561D-49AB-BCD5-BD8C777C0483%7D&file=Prosess%20og%20milj%C3%B8_%20Sysselsetting_2023_A.xlsm&action=default&mobileredirect=true") 
+            #st.write("[• Prosess & miljø](%s)" % "https://asplanviak.sharepoint.com/:x:/r/sites/10362-00-50/_layouts/15/Doc.aspx?sourcedoc=%7B76F0DFE8-561D-49AB-BCD5-BD8C777C0483%7D&file=Prosess%20og%20milj%C3%B8_%20Sysselsetting_2023_A.xlsm&action=default&mobileredirect=true") 
             st.write("[• TRT's](%s)" % "https://asplanviak.sharepoint.com/sites/10333-03/Delte%20dokumenter/General/Termisk%20responstest/Testoversikt.xlsx") 
         with c2:
             st.write("[• Ebooks](%s)" % "https://asplanviak.sharepoint.com/sites/10333-03")
