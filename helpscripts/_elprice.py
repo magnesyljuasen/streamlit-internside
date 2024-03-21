@@ -26,12 +26,18 @@ class CalculateCosts:
         with st.form(key="myform", border=False):
             c1, c2, c3 = st.columns(3)
             with c1:
-                nettleie_provider = st.selectbox("Nettleieselskap", options=["Tensio", "Glitre"])
+                nettleie_provider = st.selectbox("Nettleieselskap", options=["Tensio", "Glitre", "Tensio fremtidig", "Ingen nettleie"])
                 if nettleie_provider == "Tensio":
                     filename = "src/data/input/Prissatser_nettleie_Tensio.xlsx"
                 elif nettleie_provider == "Glitre":
                     filename = "src/data/input/Prissatser_nettleie_Glitre.xlsx"
-                self.spotprisfil_aar = st.selectbox(label='Årstall for spotpriser',options=['2023', '2022', '2021', '2020'],index=0)
+                elif nettleie_provider == "Tensio fremtidig":
+                    filename = "src/data/input/Prissatser_nettleie_Tensio_fremtidig.xlsx"
+                elif nettleie_provider == "Ingen nettleie":
+                    filename = "src/data/input/Prissatser_nettleie_ingen_nettleie.xlsx"
+                self.spotprisfil_aar = st.selectbox(label='Årstall for spotpriser',options=['3 kr/kWh om vinteren og 0,5 kr/kWh om sommeren', '2023', '2022', '2021', '2020'],index=0)
+                if self.spotprisfil_aar == '3 kr/kWh om vinteren og 0,5 kr/kWh om sommeren':
+                    self.spotprisfil_aar = 'Fremtidig'
             with c2:
                 self.prissats_filnavn = filename
                 self.type_kunde = st.selectbox(label='Type strømkunde',options=['Privatkunde', 'Mindre næringskunde', 'Større næringskunde'],index=0)
