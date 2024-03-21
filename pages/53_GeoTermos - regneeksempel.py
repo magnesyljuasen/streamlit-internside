@@ -52,11 +52,11 @@ def conditional_sum(array, mode = 'above'):
     return round(int(sum(new_array)),-3)
 
 st.cache_resource(show_spinner=False)
-def read_df():
-    df = pd.read_excel("src/data/geotermos_profil/GeoTermosEksempel.xlsx")
+def read_df(sheet_name="Sheet1"):
+    df = pd.read_excel("src/data/geotermos_profil/GeoTermosEksempel.xlsx", sheet_name=sheet_name)
     return df
 
-def show_simple_plot(df, name, color='#1d3c34', ymin=0, ymax=1000, mode='hourly'):
+def show_simple_plot(df, name, color='#1d3c34', ymin=0, ymax=1000, mode='hourly', type='positive'):
     array = df[name].to_numpy()
     if mode == 'hourly':
         fig = go.Figure()
@@ -91,13 +91,15 @@ def show_simple_plot(df, name, color='#1d3c34', ymin=0, ymax=1000, mode='hourly'
         st.plotly_chart(fig, use_container_width=True, config = {'displayModeBar': False, 'staticPlot': True})
     above_sum = conditional_sum(array=array, mode='above')
     below_sum = -conditional_sum(array=array, mode='below')
-    st.metric(label="Kjøpt elektrisk energi", value=f"{above_sum:,} kWh".replace(",", " "))
-    st.metric(label="Overskudd solstrømproduksjon", value=f"{-below_sum:,} kWh".replace(",", " "))
+    if type == 'positive':
+        st.metric(label="Kjøpt elektrisk energi", value=f"{above_sum:,} kWh".replace(",", " "))
+    else:
+        st.metric(label="Overskudd solstrømproduksjon", value=f"{below_sum:,} kWh".replace(",", " "))
     st.markdown("---")
     #st.metric(label="Balanse", value=f"{above_sum - below_sum:,} kWh".replace(",", " "))
     return fig
 
-def show_costs_plot(calculate_costs_object, df, name, color='#1d3c34', ymin=0, ymax=1000):
+def show_costs_plot(calculate_costs_object, df, name, color='#1d3c34', ymin=0, ymax=1000, type='positive', nettleie_mode=True):  
     calculate_costs_object.spotpris()
     calculate_costs_object.ekstra_nettleie_storre_naring()
     calculate_costs_object.hele_nettleie()
@@ -111,10 +113,15 @@ def show_costs_plot(calculate_costs_object, df, name, color='#1d3c34', ymin=0, y
         fond_avgift_time = calculate_costs_object.fond_avgift_time
 
     nettleie = calculate_costs_object.energiledd_time + calculate_costs_object.kapledd_time + calculate_costs_object.offentlig_time + fastledd_time + fond_avgift_time
-    df = pd.DataFrame({
-        'Nettleie': nettleie, 
-        'Spotpris' : calculate_costs_object.spot_time
-        })
+    if nettleie_mode == True:
+        df = pd.DataFrame({
+            'Nettleie': nettleie, 
+            'Spotpris' : calculate_costs_object.spot_time
+            })
+    else:
+        df = pd.DataFrame({
+            'Spotpris' : calculate_costs_object.spot_time
+            })
     fig = go.Figure()
     for col in df.columns[:-1]:
         fig.add_trace(go.Bar(x=df.index, y=df[col], name=col))
@@ -137,11 +144,16 @@ def show_costs_plot(calculate_costs_object, df, name, color='#1d3c34', ymin=0, y
             ),
         height=300)
     st.plotly_chart(fig, use_container_width=True, config = {'displayModeBar': False, 'staticPlot': True})
-    total_array = df['Nettleie'] + df['Spotpris']
+    if nettleie_mode == True:
+        total_array = df['Nettleie'] + df['Spotpris']
+    else:
+        total_array = df['Spotpris']
     above_sum = conditional_sum(array=total_array, mode='above')
     below_sum = -conditional_sum(array=total_array, mode='below')
-    st.metric(label="Kjøpt energi", value=f"{above_sum:,} kr".replace(",", " "))
-    st.metric(label="Overskudd solstrømproduksjon", value=f"{-below_sum:,} kr".replace(",", " "))
+    if type == 'positive':
+        st.metric(label="Kjøpt energi", value=f"{above_sum:,} kr".replace(",", " "))
+    else:
+        st.metric(label="Salg av solstrøm", value=f"{below_sum:,} kr".replace(",", " "))
     st.markdown("---")
     #st.metric(label="Balanse", value=f"{above_sum - below_sum:,} kr".replace(",", " "))
 
@@ -157,6 +169,9 @@ with open("styles/with_columns.css") as f:
 st.title("GeoTermos - regneeksempel")
 
 df = read_df()
+df_positive = df.copy()
+df_positive[df_positive < 0] = 0
+df2 = read_df(sheet_name="Sheet2")
 #######################################
 #######################################
 calculate_costs_object = CalculateCosts(energy_demand = df['Elkjel'])
@@ -173,57 +188,71 @@ ymin_hourly = df['Elkjel'].min() * 1.1
 monthly_array = hour_to_month(df['Elkjel'].to_numpy())
 ymax_monthly = np.max(monthly_array) * 1.1
 ymin_monthly = np.min(monthly_array) * 1.1
-if st.toggle("Månedsplot"):
-    mode='måned'
-else:
-    mode='hourly'
+mode = 'hourly'
+#if st.toggle("Månedsplot"):
+#    mode='måned'
+#else:
+#    mode='hourly'
 c1, c2, c3 = st.columns(3)
 with c1:
     name = 'Elkjel'
     color = '#1d3c34'
-    st.caption("Alt 0)")
+    st.caption("Alt 1)")
     st.write(f"**Elkjel og sol**")
     if mode == 'hourly':
-        fig = show_simple_plot(df, name, color, ymin=ymin_hourly, ymax=ymax_hourly, mode=mode)
+        show_simple_plot(df, name, color, ymin=0, ymax=ymax_hourly, mode=mode)
+        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
     else:
-        fig = show_simple_plot(df, name, color, ymin=ymin_monthly, ymax=ymax_monthly, mode=mode)
+        show_simple_plot(df, name, color, ymin=0, ymax=ymax_monthly, mode=mode)
+        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
 with c2:
-    st.caption("Alt 1)")
+    st.caption("Alt 2)")
     st.write(f"**Energibrønner og sol**")
     name = 'Energibrønner'
     color = '#b7dc8f'
     if mode == 'hourly':
-        show_simple_plot(df, name, color, ymin=ymin_hourly, ymax=ymax_hourly, mode=mode)
+        show_simple_plot(df, name, color, ymin=0, ymax=ymax_hourly, mode=mode)
+        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
     else:
-        show_simple_plot(df, name, color, ymin=ymin_monthly, ymax=ymax_monthly, mode=mode)
+        show_simple_plot(df, name, color, ymin=0, ymax=ymax_monthly, mode=mode)
+        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
 with c3:
-    st.caption("Alt 2)")
+    st.caption("Alt 3)")
     st.write(f"**Termos og sol**")
+    #st.caption("Varme fra tørrkjøler eller PVT")
     name = 'Termos og sol'
     color = '#48a23f'
     if mode == 'hourly':
-        show_simple_plot(df, name, color, ymin=ymin_hourly, ymax=ymax_hourly, mode=mode)
+        show_simple_plot(df, name, color, ymin=0, ymax=ymax_hourly, mode=mode)
+        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
     else:
-        show_simple_plot(df, name, color, ymin=ymin_monthly, ymax=ymax_monthly, mode=mode)
+        show_simple_plot(df, name, color, ymin=0, ymax=ymax_monthly, mode=mode)
+        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
 #######################################
 #######################################
 with c1:
     name = 'Elkjel'
     color = '#1d3c34'
-    calculate_costs_object.forb = df[name].to_numpy()
+    calculate_costs_object.forb = df_positive[name].to_numpy()
     ymax_hourly = ymax_hourly*2.5
-    ymin_hourly = ymin_hourly*2.5
-    show_costs_plot(calculate_costs_object, df, name, color, ymin=ymin_hourly, ymax=ymax_hourly)
+    ymin_hourly = ymin_hourly
+    show_costs_plot(calculate_costs_object, df, name, color, ymin=0, ymax=ymax_hourly)
+    calculate_costs_object.forb = df2[name].to_numpy()
+    show_costs_plot(calculate_costs_object, df2, name, color, ymin=ymin_hourly, ymax=0, type='negative', nettleie_mode=False)
 with c2:
     name = 'Energibrønner'
     color = '#b7dc8f'
-    calculate_costs_object.forb = df[name].to_numpy()
-    show_costs_plot(calculate_costs_object, df, name, color, ymin=ymin_hourly, ymax=ymax_hourly)
+    calculate_costs_object.forb = df_positive[name].to_numpy()
+    show_costs_plot(calculate_costs_object, df, name, color, ymin=0, ymax=ymax_hourly)
+    calculate_costs_object.forb = df2[name].to_numpy()
+    show_costs_plot(calculate_costs_object, df2, name, color, ymin=ymin_hourly, ymax=0, type='negative', nettleie_mode=False)
 with c3:
     name = 'Termos og sol'
     color = '#48a23f'
-    calculate_costs_object.forb = df[name].to_numpy()
-    show_costs_plot(calculate_costs_object, df, name, color, ymin=ymin_hourly, ymax=ymax_hourly)
+    calculate_costs_object.forb = df_positive[name].to_numpy()
+    show_costs_plot(calculate_costs_object, df, name, color, ymin=0, ymax=ymax_hourly)
+    calculate_costs_object.forb = df2[name].to_numpy()
+    show_costs_plot(calculate_costs_object, df2, name, color, ymin=ymin_hourly, ymax=0, type='negative', nettleie_mode=False)
 #######################################
 #######################################
 #st.line_chart(calculate_costs_object.spot_sats[calculate_costs_object.sone])
