@@ -201,10 +201,10 @@ with c1:
     st.write(f"**Elkjel og sol**")
     if mode == 'hourly':
         show_simple_plot(df, name, color, ymin=0, ymax=ymax_hourly, mode=mode)
-        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
+        show_simple_plot(df2, name, color, ymin=-ymax_hourly, ymax=0, mode=mode, type='negative')
     else:
         show_simple_plot(df, name, color, ymin=0, ymax=ymax_monthly, mode=mode)
-        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
+        show_simple_plot(df2, name, color, ymin=-ymax_hourly, ymax=0, mode=mode, type='negative')
 with c2:
     st.caption("Alt 2)")
     st.write(f"**Energibrønner og sol**")
@@ -212,10 +212,10 @@ with c2:
     color = '#b7dc8f'
     if mode == 'hourly':
         show_simple_plot(df, name, color, ymin=0, ymax=ymax_hourly, mode=mode)
-        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
+        show_simple_plot(df2, name, color, ymin=-ymax_hourly, ymax=0, mode=mode, type='negative')
     else:
         show_simple_plot(df, name, color, ymin=0, ymax=ymax_monthly, mode=mode)
-        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
+        show_simple_plot(df2, name, color, ymin=-ymax_hourly, ymax=0, mode=mode, type='negative')
 with c3:
     st.caption("Alt 3)")
     st.write(f"**Termos og sol**")
@@ -224,10 +224,10 @@ with c3:
     color = '#48a23f'
     if mode == 'hourly':
         show_simple_plot(df, name, color, ymin=0, ymax=ymax_hourly, mode=mode)
-        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
+        show_simple_plot(df2, name, color, ymin=-ymax_hourly, ymax=0, mode=mode, type='negative')
     else:
         show_simple_plot(df, name, color, ymin=0, ymax=ymax_monthly, mode=mode)
-        show_simple_plot(df2, name, color, ymin=ymin_hourly, ymax=0, mode=mode, type='negative')
+        show_simple_plot(df2, name, color, ymin=-ymax_hourly, ymax=0, mode=mode, type='negative')
 #######################################
 #######################################
 with c1:
@@ -238,21 +238,21 @@ with c1:
     ymin_hourly = ymin_hourly
     show_costs_plot(calculate_costs_object, df, name, color, ymin=0, ymax=ymax_hourly)
     calculate_costs_object.forb = df2[name].to_numpy()
-    show_costs_plot(calculate_costs_object, df2, name, color, ymin=ymin_hourly, ymax=0, type='negative', nettleie_mode=False)
+    show_costs_plot(calculate_costs_object, df2, name, color, ymin=-ymax_hourly, ymax=0, type='negative', nettleie_mode=False)
 with c2:
     name = 'Energibrønner'
     color = '#b7dc8f'
     calculate_costs_object.forb = df_positive[name].to_numpy()
     show_costs_plot(calculate_costs_object, df, name, color, ymin=0, ymax=ymax_hourly)
     calculate_costs_object.forb = df2[name].to_numpy()
-    show_costs_plot(calculate_costs_object, df2, name, color, ymin=ymin_hourly, ymax=0, type='negative', nettleie_mode=False)
+    show_costs_plot(calculate_costs_object, df2, name, color, ymin=-ymax_hourly, ymax=0, type='negative', nettleie_mode=False)
 with c3:
     name = 'Termos og sol'
     color = '#48a23f'
     calculate_costs_object.forb = df_positive[name].to_numpy()
     show_costs_plot(calculate_costs_object, df, name, color, ymin=0, ymax=ymax_hourly)
     calculate_costs_object.forb = df2[name].to_numpy()
-    show_costs_plot(calculate_costs_object, df2, name, color, ymin=ymin_hourly, ymax=0, type='negative', nettleie_mode=False)
+    show_costs_plot(calculate_costs_object, df2, name, color, ymin=-ymax_hourly, ymax=0, type='negative', nettleie_mode=False)
 #######################################
 #######################################
 #st.line_chart(calculate_costs_object.spot_sats[calculate_costs_object.sone])
