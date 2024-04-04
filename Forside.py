@@ -85,6 +85,7 @@ with open("styles/main.css") as f:
             st.write("[• NAP Nettdata](%s)" % "https://demo-tensio-data.streamlit.app/") 
             st.write("[• Dashboard Melhus](%s)" % "https://demo-melhus.streamlit.app/")
             st.write("[• Dashboard Kolbotn](%s)" % "https://demo-kolbotn.streamlit.app/")
+            st.write("[• Dashboard Røa](%s)" % "https://datalogging-roa.streamlit.app/")
     with tab3:
         c1, c2 = st.columns(2)
         with c1:
