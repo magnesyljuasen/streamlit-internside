@@ -62,6 +62,7 @@ with open("styles/main.css") as f:
             st.write("[• GeoNorge](%s)" % "https://www.geonorge.no/")
             st.write("[• Saksinnsyn](%s)" % "https://od2.pbe.oslo.kommune.no/kart/")
             st.write("[• AV-kartet](%s)" % "https://kart.asplanviak.no/")     
+            st.write("[• Kommunekart](%s)" % "https://www.kommunekart.com/")     
     with tab2:
         c1, c2 = st.columns(2)
         with c1:
