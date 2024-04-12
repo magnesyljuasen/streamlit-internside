@@ -25,23 +25,27 @@ if uploaded_file:
     st.subheader("Data")
     groundwater_table = st.number_input("Grunnvannstand (m)", value=5, min_value=0, max_value=100, step=1)
     df = df[df["Dybde"] >= groundwater_table]
+    df = df.reset_index(drop=True)
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x=df['Temperatur'], y=df['Dybde'], mode='lines'))
+    fig.add_trace(go.Scatter(x=df['Temperatur'], y=df['Dybde'], mode='lines', line=dict(color="Black", width=3)))
     fig.update_yaxes(autorange='reversed')
+    fig.add_shape(type="line", x0=min(df['Temperatur']), x1=max(df['Temperatur']), y0=groundwater_table, y1=groundwater_table,line=dict(color="Blue", width=3, dash="dash"))
     fig.update_layout(
         xaxis={'side': 'top'},
         xaxis_title='Temperatur (°C)', 
-        yaxis_title='Dybde (m)', 
+        yaxis_title='Dybde (m)',
+        height=600 
         )
     st.plotly_chart(fig, use_container_width=True)
     with st.expander("Se data"):
         st.dataframe(data=df, use_container_width=True)
     df.reset_index(inplace=True)
-    with st.spinner("Beregner uforstyrret temperatur..."):
+    step = 0.0001
+    with st.spinner("Beregner uforstyrret temperatur med en geometrisk metode..."):
         mean_value = df["Temperatur"].mean()
         positive_deviation = 0
         negative_deviation = 0
-        for i in range(0, 1000):
+        for i in range(0, 10000):
             #--
             for i in range(0, len(df)-1):
                 if df["Temperatur"].iloc[i] > mean_value:
@@ -72,9 +76,12 @@ if uploaded_file:
                     areal_rektangel = delta_y*langside
                     totalt_areal = areal_rektangel + areal_trekant
                     negative_deviation += totalt_areal
-            trigger_value = round(float(positive_deviation/negative_deviation),2)
+            trigger_value = positive_deviation/negative_deviation
             if trigger_value > 1:
-                mean_value = mean_value + 0.1
+                mean_value = mean_value + step
             if trigger_value < 1:
-                mean_value = mean_value - 0.1
+                mean_value = mean_value - step
+        
         st.subheader(f"Uforstyrret temperatur = {round(float(mean_value),2)} °C")
+        st.write(f"Avvik: {abs(100 - abs(positive_deviation/negative_deviation)*100)} %.")
+        st.info("Om avviket er høyt, er det noe feil. Kontrollsjekk resultatene.")
