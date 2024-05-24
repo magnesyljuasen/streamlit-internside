@@ -34,16 +34,18 @@ if selected_regions:
     progress_bar = st.progress(0)
     for region in selected_regions:
         price_series = client.query_day_ahead_prices(region, start = start_time, end = end_time).to_numpy()
-        for index, value in enumerate(price_series):
-            if (index % 24) == 0:
-                progress_bar.progress((index)/8760, text = "Henter inn data...")
-                rate = c.get_rate('EUR', "NOK", time)
-            time = time + pd.Timedelta(hours=1)
-            price_series[index] = value * rate / 1000
-        elprice_df[f"{region}_{selected_timeinterval}"] = price_series
-    elprice_df.reset_index(drop=True, inplace=True)
-    with chart_container(elprice_df):
-        st.line_chart(data = elprice_df)
+        price_series = client.query(region, start = start_time, end = end_time).to_numpy()
+        st.write(price_series)
+#        for index, value in enumerate(price_series):
+#            if (index % 24) == 0:
+#                progress_bar.progress((index)/8760, text = "Henter inn data...")
+#                rate = c.get_rate('EUR', "NOK", time)
+#            time = time + pd.Timedelta(hours=1)
+#            price_series[index] = value * rate / 1000
+#        elprice_df[f"{region}_{selected_timeinterval}"] = price_series
+#    elprice_df.reset_index(drop=True, inplace=True)
+#    with chart_container(elprice_df):
+#        st.line_chart(data = elprice_df)
             
 
             

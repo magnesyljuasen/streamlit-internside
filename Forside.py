@@ -76,6 +76,7 @@ with open("styles/main.css") as f:
             st.write("[• EPZ Østmarka](%s)" % "https://energianalyes-oestmarka.streamlit.app/")
             st.write("[• EPZ Kringsjå](%s)" % "https://streamlit-kringsjaa.azurewebsites.net/")
             st.write("[• EPZ Bodø](%s)" % "https://demo-energy-plan-zero.streamlit.app/")
+            st.write("[• Aneo & Thema](%s)" % "https://streamlit-aneo-thema.azurewebsites.net/")
         with c2:
             st.write("[• 3D kart](%s)" % "https://asplanviak.maps.arcgis.com/apps/webappviewer3d/index.html?id=66d6a06bc9a84510a4db7262411ffda7")
             st.write("[• Sammenstilling](%s)" % "https://asplanviak.maps.arcgis.com/apps/instant/basic/index.html?appid=901e9d0f94b24ec186bd4e1f7ce426c6")
