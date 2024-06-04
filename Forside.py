@@ -66,11 +66,11 @@ with open("styles/main.css") as f:
     with tab2:
         c1, c2 = st.columns(2)
         with c1:
-            st.write("[• Bergvarmekalkulatoren 1.0](%s)" % "https://bergvarmekalkulator.streamlit.app/")
+            st.write("[• Bergvarmekalkulatoren 1.0](%s)" % "https://www.varmepumpeinfo.no/bergvarme/kalkulator")
             st.write("[• Tidligfasevurdering](%s)" % "https://tidligfase-grunnvarme.streamlit.app/")
-            st.write("[• Termisk responstest](%s)" % "https://termisk-responstest.streamlit.app/")
+            st.write("[• Termisk responstest](%s)" % "https://termisk-responstest.azurewebsites.net/")
             st.write("[• Elhub Nedre Glomma](%s)" % "https://nedre-glomma-forbruksdata.streamlit.app/")
-            st.write("[• GeoTermos Ernströmgruppen](%s)" % "https://geotermos-regneeksempel.streamlit.app/")  
+            st.write("[• GeoTermos Ernströmgruppen](%s)" % "https://geotermos-regneeksempel.azurewebsites.net/")  
             st.write("[• EPZ Nedre Glomma](%s)" % "https://nedre-glomma.streamlit.app/")
             st.write("[• EPZ Hovinbyen](%s)" % "https://hovinbyen.streamlit.app/")
             st.write("[• EPZ Østmarka](%s)" % "https://energianalyes-oestmarka.streamlit.app/")
@@ -89,7 +89,6 @@ with open("styles/main.css") as f:
             st.write("[• Dashboard Melhus](%s)" % "https://demo-melhus.streamlit.app/")
             st.write("[• Dashboard Kolbotn](%s)" % "https://demo-kolbotn.streamlit.app/")
             st.write("[• Dashboard Røa](%s)" % "https://datalogging-roa.streamlit.app/")
-            st.write("[• Geotermos Ernströmgruppen](%s)" % "https://www.geotermos.no/")
     with tab3:
         c1, c2 = st.columns(2)
         with c1:
