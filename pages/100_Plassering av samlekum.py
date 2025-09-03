@@ -129,44 +129,48 @@ df = pd.DataFrame({
     "X" : [5, 35, 20, -10, -25, 20, -10, 50, 0, 60],
     "Y" : [5, 5, 31, 31, 5, -21, -21, 20, 50, 60]})
 
-df = st.data_editor(df, use_container_width=True, hide_index=True, )
+df = st.data_editor(df, use_container_width=True, hide_index=True, num_rows="dynamic")
 
-fig, ax = plt.subplots()
-for i in range(0, len(df)):
-    X, Y, ID = df["X"][i], df["Y"][i], df["ID"][i]
-    plot_point(X, Y, ID)
+if st.checkbox('Kjør beregning'):
 
-df_EB, df_TR, df_SK = filter_dataframe("EB"), filter_dataframe("TR"), filter_dataframe("SK")
-points_EB, points_TR, points_SK = df_EB[["X", "Y"]].to_numpy(dtype=float), df_TR[["X", "Y"]].to_numpy(dtype=float), df_SK[["X", "Y"]].to_numpy(dtype=float)
+    fig, ax = plt.subplots()
+    for i in range(0, len(df)):
+        X, Y, ID = df["X"][i], df["Y"][i], df["ID"][i]
+        plot_point(X, Y, ID)
 
-selected_mode = st.selectbox("Modus", options=["Iterasjon", "Tyngdepunkt", "Egendefinert"])
+    df_EB, df_TR, df_SK = filter_dataframe("EB"), filter_dataframe("TR"), filter_dataframe("SK")
+    points_EB, points_TR, points_SK = df_EB[["X", "Y"]].to_numpy(dtype=float), df_TR[["X", "Y"]].to_numpy(dtype=float), df_SK[["X", "Y"]].to_numpy(dtype=float)
 
-if selected_mode == "Egendefinert":
-    cx, cy, total_line_length, max_line_length = set_cx_cy(points_SK, points_EB)
+    selected_mode = st.selectbox("Modus", options=["Tyngdepunkt", "Iterasjon", "Egendefinert"])
+
+    if selected_mode == "Egendefinert":
+        cx, cy, total_line_length, max_line_length = set_cx_cy(points_SK, points_EB)
+    else:
+        cx, cy, total_line_length, max_line_length = find_cx_cy(points_EB, mode = selected_mode)
+
+    ax.plot(cx, cy, marker = "o", color = "red")
+    for i in range(0, len(points_EB)):
+        line_length = calculate_line_length(point1 = [cx, cy], point2 = points_EB[i])
+        plot_line(point1 = [cx, cy], point2 = points_EB[i], line_length = line_length)
+    if len(points_TR) > 0:
+        line_length = calculate_line_length(point1 = [cx, cy], point2 = [points_TR[0][0], points_TR[0][1]])  
+        sk_to_tr_length = line_length  
+        plot_line(point1 = [cx, cy], point2 = [points_TR[0][0], points_TR[0][1]], line_length = line_length, line_alpha = 0.5)
+
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.metric("Maks (SK <-> EB)", f"{max_line_length} m")
+    with c2:
+        st.metric("Totalt (SK <-> EB)", f"{total_line_length} m")
+    with c3:
+        st.metric("SK <-> TR", f"{sk_to_tr_length} m")
+
+
+    plt.xlabel('X [m]')
+    plt.ylabel('Y [m]')
+    plt.grid(True)
+    plt.gca().set_aspect("equal")
+    st.pyplot(plt)
+    plt.close()
 else:
-    cx, cy, total_line_length, max_line_length = find_cx_cy(points_EB, mode = selected_mode)
-
-ax.plot(cx, cy, marker = "o", color = "red")
-for i in range(0, len(points_EB)):
-    line_length = calculate_line_length(point1 = [cx, cy], point2 = points_EB[i])
-    plot_line(point1 = [cx, cy], point2 = points_EB[i], line_length = line_length)
-if len(points_TR) > 0:
-    line_length = calculate_line_length(point1 = [cx, cy], point2 = [points_TR[0][0], points_TR[0][1]])  
-    sk_to_tr_length = line_length  
-    plot_line(point1 = [cx, cy], point2 = [points_TR[0][0], points_TR[0][1]], line_length = line_length, line_alpha = 0.5)
-
-c1, c2, c3 = st.columns(3)
-with c1:
-    st.metric("Maks (SK <-> EB)", f"{max_line_length} m")
-with c2:
-    st.metric("Totalt (SK <-> EB)", f"{total_line_length} m")
-with c3:
-    st.metric("SK <-> TR", f"{sk_to_tr_length} m")
-
-
-plt.xlabel('X [m]')
-plt.ylabel('Y [m]')
-plt.grid(True)
-plt.gca().set_aspect("equal")
-st.pyplot(plt)
-plt.close()
+    st.stop()
